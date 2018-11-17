@@ -3,17 +3,67 @@ html, body, div {
     padding: 0;
 }
 
-h1 {
+html, body {
+  height: 100%;
+}
+
+#bar{
+  display: inline-block;
+  height: 140px;
+  width: 100%;
   text-align: center;
 }
 
-table {
-  position: relative;
+#wrapper{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  width: 40%;
+  
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+#computer {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  margin-left: 50px;
+  right: 100px;
+  display: inline-block;
+  height: 30px;
+  width: 200px;
+  text-align: left;
+}
+
+/* table {
+  display: inline-block;
+  position: static;
+ 
   border-collapse: collapse;
   border-spacing: 0px;
-  margin: 6em auto;
+  margin: auto auto;
   width: 432px;
   height: 432px;
+  padding: 0;
+  border:0px;
+}  */
+
+table {
+  display: inline-block;
+  position: relative;
+  /* top: 35%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  border-collapse: collapse;
+  border-spacing: 0px;
+  margin: auto auto;
+  width: 436px;
+  height: 436px;
   padding: 0;
   border:0px;
 }
@@ -26,7 +76,8 @@ td, tr {
 
 .mydiv {
   width: 144px;
-  height: 144px; 
+  height: 144px;
+  text-align: center; 
 }
 
 
@@ -47,7 +98,7 @@ td, tr {
 
 /* Styling Circle */
 .circle {
-  display: inline-block;
+  display: block;
   height: 124px;
   border-radius: 100%;
   width:124px;
@@ -63,7 +114,7 @@ td, tr {
 
   .cross {
     position: relative;
-    display: inline-block;
+    display: block;
     width: 120px;
     height: 120px;
     overflow: hidden;
@@ -94,3 +145,70 @@ td, tr {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   } 
+
+
+/* Style the Swithc on - off */ 
+ 
+#play{
+  margin:5px;
+}
+
+.notDisplay{
+ display: none;
+}
+
+       /* The switch - the box around the slider */
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 35px;
+   height: 20px;
+ }
+
+ /* Hide default HTML checkbox */
+ .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   -webkit-transition: .4s;
+   transition: .4s;
+   border-radius: 34px;
+ }
+ 
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 15px;
+   width: 15px;
+   left: 2px;
+   bottom: 3px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+   border-radius: 50%;
+ }
+ 
+ input:checked + .slider {
+   background-color: black;
+ }
+ 
+ input:focus + .slider {
+   box-shadow: 0 0 1px black;
+ }
+ 
+ input:checked + .slider:before {
+   -webkit-transform: translateX(16px);
+   -ms-transform: translateX(16px);
+   transform: translateX(16px);
+ }

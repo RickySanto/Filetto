@@ -10,44 +10,60 @@
     <title>Play Filetto</title>
   </head>
   <body>
-    <h1>Welcome: Play Filetto!</h1>
-    <div class="container">
-      <table cellspacing="0"  class="table">
-        <tr class="row">
-          <td>
-            <div class="mydiv" id='a1'></div>
-          </td>
-          <td>
-            <div class="mydiv" id='a2'></div>
-          </td>
-          <td>
-            <div class="mydiv" id='a3'></div>
-          </td>
-        </tr>
-        <tr class="row">
-          <td>
-            <div class="mydiv" id='b1'></div>
-          </td>
-          <td>
-            <div class="mydiv" id='b2'></div>
-          </td>
-          <td>
-            <div class="mydiv" id='b3'></div>
-          </td>
-        </tr>
-        <tr class="row">
-          <td>
-            <div class="mydiv" id='c1'><span class="circle"></span></div>
-          </td>
-          <td>
-            <div class="mydiv" id='c2'><span class="cross pointy"></span></div>
-          </td>
-          <td>
-            <div class="mydiv" id='c3'></div>
-          </td>
-        </tr>  
-      </table>
-    </div>
+      <!-- PLAY BAR -->
+          <div id="bar">
+              <h1>Welcome: Play Filetto!</h1>
+            
+              <div id="computer">
+                  <button id="play">Play</button>
+                  <label>Computer:
+                      <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider"></span>
+                      </label>
+                      <span id="off">OFF</span><span id="on" class="notDisplay">ONN</span>
+                  </label>
+              </div>
+          </div>
+      
+      <!-- TABLE CONTENT-->
+      <div id="wrapper">
+        <table cellspacing="0"  class="table">
+          <tr class="row">
+            <td>
+              <div class="mydiv" id='a1'></div>
+            </td>
+            <td>
+              <div class="mydiv" id='a2'></div>
+            </td>
+            <td>
+              <div class="mydiv" id='a3'></div>
+            </td>
+          </tr>
+          <tr class="row">
+            <td>
+              <div class="mydiv" id='b1'></div>
+            </td>
+            <td>
+              <div class="mydiv" id='b2'></div>
+            </td>
+            <td>
+              <div class="mydiv" id='b3'></div>
+            </td>
+          </tr>
+          <tr class="row">
+            <td>
+              <div class="mydiv" id='c1'><span class="circle"></span></div>
+            </td>
+            <td>
+              <div class="mydiv" id='c2'><span class="cross pointy"></span></div>
+            </td>
+            <td>
+              <div class="mydiv" id='c3'></div>
+            </td>
+          </tr>  
+        </table>
+      </div> 
   </body>
   <script src="filetto.js"></script>
 </html>
