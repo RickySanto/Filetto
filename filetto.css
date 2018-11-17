@@ -11,7 +11,7 @@ html, body {
   display: inline-block;
   height: 140px;
   width: 100%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #wrapper{
@@ -21,44 +21,34 @@ html, body {
 }
 
 h1 {
-  text-align: center;
-  width: 40%;
-  
+  float: left;
+  text-align: left;
+  width: 320px;
+  margin-left: 100px;
   margin-top: 20px;
   margin-bottom: 0px;
-  display: inline-block;
+  display: block;
+  font-family: 'Acme', sans-serif;
+
 }
 
 #computer {
+  float: right;
   margin-top: 25px;
   margin-bottom: 0px;
-  margin-left: 50px;
+  margin-right: 100px;
   right: 100px;
-  display: inline-block;
+  display: block;
   height: 30px;
-  width: 200px;
+  width: 230px;
   text-align: left;
+  font-family: 'Overpass', sans-serif;
 }
 
-/* table {
-  display: inline-block;
-  position: static;
- 
-  border-collapse: collapse;
-  border-spacing: 0px;
-  margin: auto auto;
-  width: 432px;
-  height: 432px;
-  padding: 0;
-  border:0px;
-}  */
 
 table {
   display: inline-block;
   position: relative;
-  /* top: 35%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   border-collapse: collapse;
   border-spacing: 0px;
   margin: auto auto;
@@ -102,7 +92,7 @@ td, tr {
   height: 124px;
   border-radius: 100%;
   width:124px;
-  border:solid black 2px;
+  border:solid #0c3d8d 2px;
   position: relative;
   top: 50%;
   left: 50%;
@@ -133,7 +123,7 @@ td, tr {
     top: 50%;
     left: -50%;
     margin-top: -1px;
-    background: #000;
+    background: #ff0d13;
   }
   
  .cross::before {
@@ -147,15 +137,30 @@ td, tr {
   } 
 
 
-/* Style the Swithc on - off */ 
+/* Styling the button */
  
 #play{
-  margin:5px;
+  margin-right: 10px;
+  font-family: 'Overpass', sans-serif;
+  border:none;
+  background-color: rgb(226, 226, 226);
+  /* border: 1px solid black; */
+  color: black;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  border-radius: 13px
 }
 
-.notDisplay{
- display: none;
+#play:hover{
+  background-color: rgb(80, 80, 80); 
+  color: white;
 }
+
+#play:focus {outline:0;}
 
        /* The switch - the box around the slider */
 .switch {
@@ -211,4 +216,10 @@ td, tr {
    -webkit-transform: translateX(16px);
    -ms-transform: translateX(16px);
    transform: translateX(16px);
+ }
+
+ 
+/* Style the Swithc on - off */ 
+.notDisplay{
+  display: none;
  }
