@@ -23,7 +23,7 @@ html, body {
 h1 {
   float: left;
   text-align: left;
-  width: 320px;
+  width: 360px;
   margin-left: 120px;
   margin-top: 20px;
   margin-bottom: 0px;
@@ -31,11 +31,12 @@ h1 {
   font-family: 'Acme', sans-serif;
 }
 
+
 #win{
-  position: relative;
   display: inline-block;
   width: 100%;
   text-align: center;
+  margin-top:40px;
   margin-bottom:40px;
   font-family: 'Acme', sans-serif;
   font-size: 20px;
@@ -49,7 +50,7 @@ h1 {
   right: 100px;
   display: block;
   height: 30px;
-  width: 230px;
+  width: 250px;
   text-align: left;
   font-family: 'Overpass', sans-serif;
 }
@@ -80,12 +81,12 @@ td, tr {
 }
 
 
-#a2, #b2, #c2 {
+#ga2, #gb2, #gc2 {
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
 
-#b1, #b2, #b3 {
+#gb1, #gb2, #gb3 {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
@@ -232,16 +233,23 @@ td, tr {
    font-size: 20px;
  }
 
-#ai{
- margin-left: 74px;
+#xOrO{
+ margin-left: 78px;
+ transition-duration: 0.4s;
 }
 
  #O{
    color: #0c3d8d;
    font-size: 20px;
+   opacity: 1;
  }
  
 /* Style the Swithc on - off */ 
-.notDisplay{
-  display: none;
+.notDisplay {
+  display: none; 
+ }
+
+ .notVisible {
+  visibility: hidden;
+  opacity: 0;
  }
