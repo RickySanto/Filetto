@@ -9,25 +9,31 @@
 
     <link rel="stylesheet" href="filetto.css">
 
-    <title>Play Filetto</title>
+    <title>Play Tic Tac Toe</title>
   </head>
   <body>
       <!-- PLAY BAR -->
           <div id="bar">
-              <h1>Welcome: Play Filetto!</h1>
-            
+              <h1>Welcome: Play Tic Tac Toe!</h1>
               <div id="computer">
                   <button id="play">Play</button>
-                  <label>Computer:
-                      <label class="switch">
-                                  <input type="checkbox">
-                                  <span class="slider"></span>
-                      </label>
-                      <span id="off">OFF</span><span id="on" class="notDisplay">ON</span>
-                  </label>
+                  <label>Player 1: <span id="X">X</span>
+                    <label class="switch">
+                                <input id="playXorO" type="checkbox">
+                                <span class="slider"></span>
+                    </label>
+                    <span id="O">O</span> 
+                </label>
+                <label id="ai">Computer:
+                    <label class="switch">
+                                <input id="playComputer" type="checkbox">
+                                <span class="slider"></span>
+                    </label>
+                    <span id="off">OFF</span><span id="on" class="notDisplay">ON</span>
+                </label>
               </div>
           </div>
-      
+      <div id="win"> X WON!!!</div>
       <!-- TABLE CONTENT-->
       <div id="wrapper">
         <table cellspacing="0"  class="table">
