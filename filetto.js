@@ -4,14 +4,22 @@ var onLabel = document.querySelector("#on");
 var offLabel = document.querySelector("#off");
 var playButton = document.getElementById("play");
 var xOrO = document.getElementById("xOrO");
+var textInfo = document.getElementById("textInfo");
+var turn = "";
 
+// grid is object array which associate at each element A1,A2..B1,B2 and so on each span element in the html section
 var grid = {
     A: [],
     B: [],
     C: []
 };
 
-
+//the gridMap is the logical representation of the X and O in the html matrix it gets updated at every user choice 
+var gridMap = {
+    A: ["","",""],
+    B: ["","",""],
+    C: ["","",""]
+}
 
 var player1 = {
     manual: true,
@@ -23,18 +31,51 @@ var player1 = {
     playing: 'o'
 }
 
-
 cswitch.addEventListener ("click", function(){
     onLabel.classList.toggle('notDisplay');
     offLabel.classList.toggle('notDisplay');
     xOrO.classList.toggle('notVisible');
 });
 
+//Inizialize the screen associating grid and gridMap
+
+gameInit();
+
+document.getElementById("textInfo").innerHTML = "X Turn";
+
+function gameInit(){
+    for (let raw in grid){
+        for (let i = 0; i < 3; i++) {
+            grid[raw][i] = document.getElementById(raw + String(i+1));
+        }
+    } 
+}
+
+
 
 playButton.addEventListener ("click", function(){
-    gameInit();
-});
+    turn = "x"
+    for (let raw in grid){
+            for (let i = 0; i < 3; i++) {
+                grid[raw][i].addEventListener ("click", play(raw, i))
+            };
+    };
 
+    playGame(turn);    
+
+}); 
+
+function play(raw, i){
+    // gridMap[raw][i] = turn;
+    // populateGrid();
+    console.log("Clicked" + raw + i);
+}
+
+
+
+function playGame(turn){
+
+};
 
 // if (playComputer.checked === true ){
     
@@ -44,22 +85,22 @@ playButton.addEventListener ("click", function(){
     
 // }
 
-function gameInit(){
-    for (let i = 1; i <= 3; i++) {
-        grid.A[i] = document.getElementById("A"+ String(i));
-        
-    }
-    for (let i = 1; i <= 3; i++) {
-        grid.B[i] = document.getElementById("B"+ String(i));
-        
-    }
-    for (let i = 1; i <= 3; i++) {
-        grid.C[i] = document.getElementById("C"+ String(i));
-        
-    }
-    
-}
+
 
 function populateGrid(){
-
+    for (let raw in grid){
+        for (let i = 0; i < 3; i++) {
+            if (gridMap[raw][i] === "x") {
+                grid[raw][i].classList.add("cross");
+                grid[raw][i].classList.remove("circle");
+            }
+            if (gridMap[raw][i] === "o") {
+                grid[raw][i].classList.add("circle");
+                grid[raw][i].classList.remove("cross");
+            } else if (gridMap[raw][i] === ""){
+                grid[raw][i].classList.remove("cross");
+                grid[raw][i].classList.remove("circle");
+            }
+        }
+    } 
 }
