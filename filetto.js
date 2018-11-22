@@ -52,25 +52,37 @@ function gameInit(){
 }
 
 
-
 playButton.addEventListener ("click", function(){
     turn = "x"
     for (let raw in grid){
-            for (let i = 0; i < 3; i++) {
-                grid[raw][i].addEventListener ("click", play(raw, i))
-            };
+        for (let i = 0; i < 3; i++) {
+            grid[raw][i].addEventListener('click', function(){
+                play(raw, i, turn);
+            });
+        };
     };
 
     playGame(turn);    
 
 }); 
 
-function play(raw, i){
-    // gridMap[raw][i] = turn;
-    // populateGrid();
-    console.log("Clicked" + raw + i);
+
+function play(raw, i, turn){
+    gridMap[raw][i] = turn;
+    populateGrid();
+    console.log("Clicked");
 }
 
+
+function testGrid(){
+    for (let raw in grid){
+        for (let i = 0; i < 3; i++) {
+            grid[raw][i].addEventListener('click', function(){
+                play(raw, i);
+            });
+        };
+    };
+};
 
 
 function playGame(turn){
@@ -86,6 +98,7 @@ function playGame(turn){
 // }
 
 
+//function that popolates the grid based on the values of gridmap
 
 function populateGrid(){
     for (let raw in grid){

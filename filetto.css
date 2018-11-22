@@ -98,31 +98,42 @@ td, tr {
 
 /* Styling Circle */
 .circle {
-  display: block;
-  height: 124px;
+  /* display: block;
+  height: 124px; */
   border-radius: 100%;
   width:124px;
   border:solid #0c3d8d 2px;
-  position: relative;
+  /* position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); */
 }
 
 /* Styling the Cross */
 
-  .cross {
+  .span {
     position: relative;
     display: block;
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
-    /* Added to center the Span within the Div */
+    width: 124px;
+    height: 124px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
+  }
+
+  .cross {
+    /* position: relative;
+    display: block; */
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    /* Added to center the Span within the Div */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); */
   }
   
   .cross::before, .cross::after {
