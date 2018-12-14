@@ -6,8 +6,10 @@ var playButton = document.getElementById("play");
 var xOrO = document.getElementById("xOrO");
 var textInfo = document.getElementById("textInfo");
 var turn = "";
+var nPlays = 0;
+var winner = "";
 
-// grid is object array which associate at each element A1,A2..B1,B2 and so on each span element in the html section
+// grid is object array which associate each element A1,A2..B1,B2 and so on each span element in the html section, A B and C represent raws while 1 2 3 coloms
 var grid = {
     A: [],
     B: [],
@@ -19,17 +21,17 @@ var gridMap = {
     A: ["","",""],
     B: ["","",""],
     C: ["","",""]
-}
+};
 
 var player1 = {
     manual: true,
     playing: 'x'
-}
+};
 
-var player1 = {
+var player2 = {
     manual: computer,
     playing: 'o'
-}
+};
 
 cswitch.addEventListener ("click", function(){
     onLabel.classList.toggle('notDisplay');
@@ -39,42 +41,35 @@ cswitch.addEventListener ("click", function(){
 
 //Inizialize the screen associating grid and gridMap
 
-gameInit();
-
-document.getElementById("textInfo").innerHTML = "X Turn";
+//gameInit();
 
 function gameInit(){
+    plays = 0;
     for (let raw in grid){
         for (let i = 0; i < 3; i++) {
             grid[raw][i] = document.getElementById(raw + String(i+1));
         }
-    } 
-}
+    }
+    turn = "x";
+    winner = "";
+};
+
+function clearGrids(){
+    gridMap = {
+        A: ["","",""],
+        B: ["","",""],
+        C: ["","",""]
+    };
+};
+
+
 
 
 playButton.addEventListener ("click", function(){
-    turn = "x"
-    for (let raw in grid){
-        for (let i = 0; i < 3; i++) {
-            grid[raw][i].addEventListener('click', function(){
-                play(raw, i, turn);
-            });
-        };
-    };
-
-    playGame(turn);    
-
-}); 
-
-
-function play(raw, i, turn){
-    gridMap[raw][i] = turn;
+    gameInit();
+    clearGrids();
     populateGrid();
-    console.log("Clicked");
-}
-
-
-function testGrid(){
+    document.getElementById("textInfo").innerHTML = turn.toUpperCase() + " Turn";
     for (let raw in grid){
         for (let i = 0; i < 3; i++) {
             grid[raw][i].addEventListener('click', function(){
@@ -82,11 +77,76 @@ function testGrid(){
             });
         };
     };
-};
+}); 
 
 
-function playGame(turn){
+function play(raw, col){   
+    if (gridMap[raw][col] === "") {
+        gridMap[raw][col] = turn;
+        populateGrid();
+        nPlays++;
+        console.log("Clicked");
+        winner = checkWin();
+        if (winner === "") {
+            if (turn === "x") {turn = "o"} else turn = "x";
+            document.getElementById("textInfo").innerHTML = turn.toUpperCase() + " Turn";
+        } else gameOver(winner);
+    }
+}
 
+
+function gameOver(winner){
+    if (winner === "draw") {
+        document.getElementById("textInfo").innerHTML = "DRAW!";
+    } else {
+        document.getElementById("textInfo").innerHTML = "The Winner is " + winner;
+    }
+
+    //remove event listeners
+    for (let raw in grid){
+        for (let i = 0; i < 3; i++) {
+            grid[raw][i].removeEventListener('click', function(){
+                play(raw, i);
+            });
+        };
+    };
+}
+
+// function testGrid(){
+//     for (let raw in grid){
+//         for (let i = 0; i < 3; i++) {
+//             grid[raw][i].addEventListener('click', function(){
+//                 play(raw, i);
+//             });
+//         };
+//     };
+// };
+
+
+function checkWin(){
+    let winner = "";
+    for (let raw in grid){
+            if (gridMap[raw][0] === gridMap[raw][1] && gridMap[raw][0] === gridMap[raw][2]){
+                winner = gridMap[raw][0];
+            };
+        }
+        
+        for (let i = 0; i < 3; i++) {
+            if (gridMap["A"][i] === gridMap["B"][i] && gridMap["A"][i] === gridMap["C"][i]){
+                winner = gridMap["A"][i];
+            };
+        }
+
+        if (gridMap["A"][0] === gridMap["B"][1] && gridMap["A"][0] === gridMap["C"][2]){
+            winner = gridMap["A"][0];
+        };
+
+        if (gridMap["C"][0] === gridMap["B"][1] && gridMap["C"][0] === gridMap["A"][2]){
+            winner = gridMap["C"][0];
+        };
+
+    if (nPlays === 9 && winner === "") {return "draw"} else {return winner}
+     
 };
 
 // if (playComputer.checked === true ){
