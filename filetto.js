@@ -23,15 +23,6 @@ var gridMap = {
     C: ["","",""]
 };
 
-var player1 = {
-    manual: true,
-    playing: 'x'
-};
-
-var player2 = {
-    manual: computer,
-    playing: 'o'
-};
 
 cswitch.addEventListener ("click", function(){
     onLabel.classList.toggle('notDisplay');
@@ -39,12 +30,10 @@ cswitch.addEventListener ("click", function(){
     xOrO.classList.toggle('notVisible');
 });
 
-//Inizialize the screen associating grid and gridMap
 
-//gameInit();
 
 function gameInit(){
-    plays = 0;
+    nPlays = 0;
     for (let raw in grid){
         for (let i = 0; i < 3; i++) {
             grid[raw][i] = document.getElementById(raw + String(i+1));
@@ -63,8 +52,6 @@ function clearGrids(){
 };
 
 
-
-
 playButton.addEventListener ("click", function(){
     gameInit();
     clearGrids();
@@ -81,11 +68,11 @@ playButton.addEventListener ("click", function(){
 
 
 function play(raw, col){   
-    if (gridMap[raw][col] === "") {
+    if (gridMap[raw][col] === "" && winner === ""){
         gridMap[raw][col] = turn;
         populateGrid();
         nPlays++;
-        console.log("Clicked");
+        //console.log("Clicked");
         winner = checkWin();
         if (winner === "") {
             if (turn === "x") {turn = "o"} else turn = "x";
@@ -99,28 +86,9 @@ function gameOver(winner){
     if (winner === "draw") {
         document.getElementById("textInfo").innerHTML = "DRAW!";
     } else {
-        document.getElementById("textInfo").innerHTML = "The Winner is " + winner;
+        document.getElementById("textInfo").innerHTML = "The Winner is " + winner.toUpperCase();
     }
-
-    //remove event listeners
-    for (let raw in grid){
-        for (let i = 0; i < 3; i++) {
-            grid[raw][i].removeEventListener('click', function(){
-                play(raw, i);
-            });
-        };
-    };
-}
-
-// function testGrid(){
-//     for (let raw in grid){
-//         for (let i = 0; i < 3; i++) {
-//             grid[raw][i].addEventListener('click', function(){
-//                 play(raw, i);
-//             });
-//         };
-//     };
-// };
+};
 
 
 function checkWin(){
@@ -128,22 +96,26 @@ function checkWin(){
     for (let raw in grid){
             if (gridMap[raw][0] === gridMap[raw][1] && gridMap[raw][0] === gridMap[raw][2]){
                 winner = gridMap[raw][0];
+                if (winner != "") return(winner);
             };
-        }
+    }
         
-        for (let i = 0; i < 3; i++) {
-            if (gridMap["A"][i] === gridMap["B"][i] && gridMap["A"][i] === gridMap["C"][i]){
-                winner = gridMap["A"][i];
-            };
-        }
-
-        if (gridMap["A"][0] === gridMap["B"][1] && gridMap["A"][0] === gridMap["C"][2]){
-            winner = gridMap["A"][0];
+    for (let i = 0; i < 3; i++) {
+        if (gridMap["A"][i] === gridMap["B"][i] && gridMap["A"][i] === gridMap["C"][i]){
+            winner = gridMap["A"][i];
+            if (winner != "") return(winner);
         };
+    }
 
-        if (gridMap["C"][0] === gridMap["B"][1] && gridMap["C"][0] === gridMap["A"][2]){
-            winner = gridMap["C"][0];
-        };
+    if (gridMap["A"][0] === gridMap["B"][1] && gridMap["A"][0] === gridMap["C"][2]){
+        winner = gridMap["A"][0];
+        if (winner != "") return(winner);
+    };
+
+    if (gridMap["C"][0] === gridMap["B"][1] && gridMap["C"][0] === gridMap["A"][2]){
+        winner = gridMap["C"][0];
+        if (winner != "") return(winner);
+    };
 
     if (nPlays === 9 && winner === "") {return "draw"} else {return winner}
      
