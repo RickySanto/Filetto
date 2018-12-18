@@ -11,7 +11,6 @@ html, body {
   display: inline-block;
   height: 130px;
   width: 100%;
-  /* text-align: center; */
 }
 
 #wrapper{
@@ -24,7 +23,7 @@ h1 {
   float: left;
   text-align: left;
   width: 360px;
-  margin-left: 120px;
+  margin-left: 100px;
   margin-top: 20px;
   margin-bottom: 0px;
   display: block;
@@ -36,7 +35,7 @@ h1 {
   display: inline-block;
   width: 100%;
   text-align: center;
-  margin-top:0px;
+  margin-top:5px;
   margin-bottom:20px;
   font-family: 'Acme', sans-serif;
   font-size: 20px;
@@ -80,7 +79,6 @@ td, tr {
   text-align: center; 
 }
 
-
 #ga2, #gb2, #gc2 {
   border-left: 2px solid black;
   border-right: 2px solid black;
@@ -92,80 +90,59 @@ td, tr {
 }
 
 
-  /* color player 1: #1ebcc5;
-  /* color player 2: red */
-
-
 /* Styling Circle */
 .circle {
-  /* display: block;
-  height: 124px; */
   border-radius: 100%;
   width:124px;
   border:solid #0c3d8d 2px;
-  /* position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%); */
 }
 
 /* Styling the Cross */
+.span {
+  position: relative;
+  display: block;
+  width: 124px;
+  height: 124px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
 
-  .span {
-    position: relative;
-    display: block;
-    width: 124px;
-    height: 124px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-  }
+.cross {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
 
-  .cross {
-    /* position: relative;
-    display: block; */
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
-    /* Added to center the Span within the Div */
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%); */
-  }
-  
-  .cross::before, .cross::after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    width: 200%;
-    top: 50%;
-    left: -50%;
-    margin-top: -1px;
-    background: #ff0d13;
-  }
-  
- .cross::before {
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  
- .cross::after {
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  } 
+.cross::before, .cross::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 200%;
+  top: 50%;
+  left: -50%;
+  margin-top: -1px;
+  background: #ff0d13;
+}
+
+.cross::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.cross::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+} 
 
 
 /* Styling the button */
- 
 #play{
   margin-right: 10px;
   font-family: 'Overpass', sans-serif;
   border:none;
   background-color: rgb(226, 226, 226);
-  /* border: 1px solid black; */
   color: black;
   padding: 5px 15px;
   text-align: center;
@@ -183,66 +160,66 @@ td, tr {
 
 #play:focus {outline:0;}
 
-       /* The switch - the box around the slider */
+/* The switch - the box around the slider */
 .switch {
-   position: relative;
-   display: inline-block;
-   width: 35px;
-   height: 20px;
- }
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+}
 
- /* Hide default HTML checkbox */
- .switch input {
-   opacity: 0;
-   width: 0;
-   height: 0;
- }
- 
- /* The slider */
- .slider {
-   position: absolute;
-   cursor: pointer;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background-color: #ccc;
-   -webkit-transition: .4s;
-   transition: .4s;
-   border-radius: 34px;
- }
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
- .slider:before {
-   position: absolute;
-   content: "";
-   height: 15px;
-   width: 15px;
-   left: 2px;
-   bottom: 3px;
-   background-color: white;
-   -webkit-transition: .4s;
-   transition: .4s;
-   border-radius: 50%;
- }
- 
- input:checked + .slider {
-   background-color: black;
- }
- 
- input:focus + .slider {
-   box-shadow: 0 0 1px black;
- }
- 
- input:checked + .slider:before {
-   -webkit-transform: translateX(16px);
-   -ms-transform: translateX(16px);
-   transform: translateX(16px);
- }
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
 
- #X{
-   color: red;
-   font-size: 20px;
- }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 2px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+#X{
+  color: red;
+  font-size: 20px;
+}
 
 #xOrO{
  margin-left: 78px;
