@@ -1,5 +1,4 @@
 // Tic-Tac-Toe game written by Riccardo Santoni
-
 var cswitch = document.getElementById("playComputer");
 var playXorO = document.getElementById("playXorO");
 var onLabel = document.querySelector("#on");
@@ -11,7 +10,6 @@ var turn = "";
 var nPlays = 0;
 var winner = "";
 var cPlay = ""; //variable representing the sign that the computer plays between x and o
-var rows = ["A","B","C"];
 
 // grid is object array which associate each html object with an element element A1,A2..B1,B2 in order to control the display of the game on the screen
 var grid = {
@@ -123,6 +121,7 @@ function playComputer(){
     let col;
     let row;
     let manualPlay;
+    let rows = ["A","B","C"];
     // set manual play opposite from cPlay
     if (cPlay == "x") {manualPlay = "o"} else {manualPlay = "x"};
 
@@ -153,7 +152,7 @@ function playComputer(){
     };
 };
 
-//this function calculate the best move - at the moment has been left with little logic to make the game not very hard
+//this function calculate the best move - at the moment has been left with little logic to make the game not very hard - MinMax algorithm not used
 function findBestMove(main, opponent){
     let moveArray = [];
     let move;

@@ -23,7 +23,7 @@ h1 {
   float: left;
   text-align: left;
   width: 360px;
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 20px;
   margin-bottom: 0px;
   display: block;
@@ -35,7 +35,7 @@ h1 {
   display: inline-block;
   width: 100%;
   text-align: center;
-  margin-top:5px;
+  margin-top:10px;
   margin-bottom:20px;
   font-family: 'Acme', sans-serif;
   font-size: 20px;
@@ -45,7 +45,7 @@ h1 {
   float: right;
   margin-top: 25px;
   margin-bottom: 0px;
-  margin-right: 120px;
+  margin-right: 80px;
   right: 100px;
   display: block;
   height: 30px;
