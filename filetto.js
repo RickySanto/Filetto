@@ -135,7 +135,6 @@ function playComputer(){
         move = checkTwoInLine(cPlay, manualPlay);
         
         if (move != null){
-            console.log("Function PlayComputer, See move:" + move[0] + " " + move[1]);
             play(move[0], move[1]);
         } else {
             // find two in a row for opponent sign to stop him from win
@@ -188,7 +187,6 @@ function checkTwoInLine(main, opponent) {
         }
         if (count === 2) {
             move = [row, col];
-            console.log("checktwoinLine rows" + move[0] + move[1]);
             return move;
         }
         count = 0;
@@ -204,7 +202,6 @@ function checkTwoInLine(main, opponent) {
         }
         if (count === 2) {
             move = [rowSet, i];
-            console.log("checktwoinLine colums" + move[0] + move[1]);
             return move;
         }   
     }
@@ -245,7 +242,6 @@ function checkTwoInLine(main, opponent) {
     };
     if (count === 2) {
         move = [rowSet, col];
-        console.log("checktwoinLine diagonal 2" + move[0] + move[1]);
         return move;
     }
 
